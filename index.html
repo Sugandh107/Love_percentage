@@ -36,7 +36,7 @@
                 return
             }
 
-            loading.style.display = "block"; 
+            loading.style.display = "none"; 
             tittle.style.display = "none";
 
             setTimeout(function () {
@@ -45,7 +45,7 @@
                 n = Math.floor(n);
                 document.getElementById("tittle").innerHTML = n.toString() + "%";
 
-                loading.style.display = "none";     
+                loading.style.display = "block";     
                 tittle.style.display = "block"; 
             }, 2000);
         }
