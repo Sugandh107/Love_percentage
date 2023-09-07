@@ -10,26 +10,44 @@
    
     <section>
         <h1 class="heading">LOVE CALCULATOR</h1>
+        <div id="loading" class="loading">
+            <img src="heart_loading.gif" alt="Loading...">
+        </div>
         <h3>Your Percentage</h3><p id="tittle"></p>
     <div class="container">
         
         <h2>First name :</h2>
-        <input type="text" name="" >
+        <input type="text" name="" id="fname">
         <h2>Second name :</h2>
-        <input type="text" name="">
+        <input type="text" name="" id="sname">
 
         <button  name="button"  id="1" onclick="clickme()">Calculate</button>
     </section>
     </div>
     <script>
-        
-        
+        var fname = document.getElementById('fname');
+        var sname = document.getElementById('sname');
+        var loading = document.getElementById('loading');
+        var tittle = document.getElementById('tittle');
         function clickme(){
-            var n=Math.random();
-        n=n*100;
-        n=Math.floor(n);
-           document.getElementById("tittle").innerHTML=n.toString()+"%";
-           
+
+            if(fname.value === "" || sname.value === ""){
+                alert("Please fill all fields")
+                return
+            }
+
+            loading.style.display = "block"; 
+            tittle.style.display = "none";
+
+            setTimeout(function () {
+                var n = Math.random();
+                n = n * 100;
+                n = Math.floor(n);
+                document.getElementById("tittle").innerHTML = n.toString() + "%";
+
+                loading.style.display = "none";     
+                tittle.style.display = "block"; 
+            }, 2000);
         }
     </script>
 </body>
